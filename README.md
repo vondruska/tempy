@@ -9,7 +9,7 @@ Push readings from my DS18B20 temperature probes into MQTT. Runs on a ESP8266 bo
 There are things like [ESPHome](https://esphome.io/) that does this.  But I wanted to tinker with ESP8266 boards plus learn to see how far everything has evolved since my automated pet feeder 10+ years ago.
 
 ## Options
-Currently, configuration / options like Wifi and MQTT connection settings are housed in an included header file `secrets.h`. An example file is available `secrets_example.h`.
+Currently, configuration / options like Wifi and MQTT connection settings are housed in an included header file `secrets.h`. An example file is available `secrets_build.h`.
 
 | Key | Description |
 | --- | ----------- |
@@ -29,9 +29,9 @@ If manually configuring:
 
 | Purpose | Topic | Notes |
 | ------- | ----- | ----- |
-| State Topic | `{topic_root}/{sensor_id}` | Raw readings will be in Celsius
+| State Topic | `{topic_root}/{probe_id}` | Raw readings will be in Celsius
 | Last Will and Testament | `{topic_root}/{chip_id}/lwt` | `ONLINE` / `OFFLINE` for values
-| Home Assistant Discovery | `homeassistant/sensor/{sensor_id}/config` |
+| Home Assistant Discovery | `homeassistant/sensor/{probe_id}/config` |
 
 ## HTTP Server
 Two routes exist:
